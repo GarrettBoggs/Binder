@@ -10,10 +10,10 @@
 
         <ImageView
             android:layout_width="130dp"
-            android:layout_height="100dp"
+            android:layout_height="200dp"
             android:id="@+id/characterImageView"
             android:src="@drawable/eragoncover"
-            android:scaleType="centerCrop"/>
+            android:scaleType="fitCenter"/>
 
         <ImageView
             android:id="@+id/dragIcon"
