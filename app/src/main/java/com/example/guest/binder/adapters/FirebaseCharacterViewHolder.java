@@ -41,7 +41,6 @@ import butterknife.Bind;
             Picasso.with(mContext)
                     .load(character.getPicture())
                     .resize(MAX_WIDTH, MAX_HEIGHT)
-                    .centerCrop()
                     .into(mCharacterImageView);
 
             mCharacterTextView.setText(character.getName());
