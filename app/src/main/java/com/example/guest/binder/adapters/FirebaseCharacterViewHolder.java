@@ -22,6 +22,8 @@ import butterknife.Bind;
         View mView;
         Context mContext;
 
+        public ImageView mCharacterImageView;
+
         public FirebaseCharacterViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
@@ -31,7 +33,7 @@ import butterknife.Bind;
         public void bindCharacter(Character character) {
             TextView mCharacterTextView = (TextView) mView.findViewById(R.id.characterNameTextView);
             TextView mCharacterDescTextView = (TextView) mView.findViewById(R.id.descriptionTextView);
-            ImageView mCharacterImageView = (ImageView) mView.findViewById(R.id.characterImageView);
+            mCharacterImageView = (ImageView) mView.findViewById(R.id.characterImageView);
 
 
             Picasso.with(mContext)
