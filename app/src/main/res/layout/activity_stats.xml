@@ -26,17 +26,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Winner"
-        android:id="@+id/winnerText"
-        android:textSize="40dp"
-        android:layout_above="@+id/textView5"
-        android:layout_toRightOf="@+id/characterButton"
-        android:layout_toEndOf="@+id/characterButton" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="80"
         android:id="@+id/percentText"
@@ -76,16 +65,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Loser"
-        android:id="@+id/loserText"
-        android:textSize="40sp"
-        android:layout_below="@+id/textView5"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Contact Us"
         android:id="@+id/contactClick"
@@ -111,6 +90,27 @@
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/nextButton"
         android:layout_toStartOf="@+id/nextButton" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/winnerImage"
+        android:layout_below="@+id/percentText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/dethwarz2"
+        android:layout_above="@+id/textView5"
+        android:layout_toLeftOf="@+id/textView5"
+        android:layout_toStartOf="@+id/textView5" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loserImage"
+        android:src="@drawable/dethwarz2"
+        android:layout_above="@+id/contactClick"
+        android:layout_toRightOf="@+id/textView5"
+        android:layout_toEndOf="@+id/textView5" />
 
 
 </RelativeLayout>

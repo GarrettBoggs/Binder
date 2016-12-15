@@ -104,8 +104,8 @@ public class CoverActivity extends AppCompatActivity implements View.OnClickList
             mCharacters.get(0).setPushId(pushId);
             pushRef.setValue( mCharacters.get(0));
 
-            intent.putExtra("winner", mCharacters.get(0).getName());
-            intent.putExtra("loser", mCharacters.get(1).getName());
+            intent.putExtra("winner", mCharacters.get(0).getPicture());
+            intent.putExtra("loser", mCharacters.get(1).getPicture());
             startActivity(intent);
         }
 
@@ -114,8 +114,8 @@ public class CoverActivity extends AppCompatActivity implements View.OnClickList
             mCharacters.get(1).setPushId(pushId);
             pushRef.setValue( mCharacters.get(1));
 
-            intent.putExtra("winner", mCharacters.get(1).getName());
-            intent.putExtra("loser", mCharacters.get(0).getName());
+            intent.putExtra("winner", mCharacters.get(1).getPicture());
+            intent.putExtra("loser", mCharacters.get(0).getPicture());
             startActivity(intent);
         }
     }
