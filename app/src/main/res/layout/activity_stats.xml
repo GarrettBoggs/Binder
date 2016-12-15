@@ -104,13 +104,13 @@
         android:layout_toStartOf="@+id/textView5" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="300dp"
         android:id="@+id/loserImage"
         android:src="@drawable/dethwarz2"
-        android:layout_above="@+id/contactClick"
-        android:layout_toRightOf="@+id/textView5"
-        android:layout_toEndOf="@+id/textView5" />
+        />
 
 
 </RelativeLayout>
