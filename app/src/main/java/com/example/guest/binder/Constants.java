@@ -15,4 +15,6 @@ public class Constants {
     public static final String FIREBASE_CHILD_CHARACTERS = "characters";
 
     public static final String FIREBASE_CHILD_WINS = "0";
+
+    public static final String FIREBASE_QUERY_INDEX = "index";
 }

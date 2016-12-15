@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -48,10 +49,10 @@ import butterknife.ButterKnife;
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             String uid = user.getUid();
 
-            mCharacterReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_CHARACTERS).child(uid);
+            Query query = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_CHARACTERS).child(uid).orderByChild(Constants.FIREBASE_QUERY_INDEX);
 
             mFirebaseAdapter = new FirebaseCharacterListAdapter(Character.class, R.layout.character_list_item_drag, FirebaseCharacterViewHolder.class,
-                            mCharacterReference, this, this);
+                            query, this, this);
 
             mRecyclerView.setHasFixedSize(true);
             mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
