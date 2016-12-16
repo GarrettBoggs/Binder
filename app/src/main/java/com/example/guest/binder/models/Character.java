@@ -16,10 +16,14 @@ public class Character {
     public String losses = "0";
     private String pushId;
 
+    String index;
+
     public Character(String name, String picture, String description){
         this.name = name;
         this.picture = picture;
         this.description = description;
+
+        this.index = "not_specified";
     }
 
     public Character() {};
@@ -46,5 +50,13 @@ public class Character {
 
     public String getPushId() {
         return pushId;
+    }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 }

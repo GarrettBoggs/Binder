@@ -1,6 +1,7 @@
 package com.example.guest.binder.ui;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -40,6 +41,8 @@ public class CoverActivity extends AppCompatActivity implements View.OnClickList
     @Bind(R.id.characterOneButton) Button mCharacterOneButton;
     @Bind(R.id.characterTwoButton) Button mCharacterTwoButton;
 
+    private int mOrientation;
+
     private CharacterListAdapter mAdapter;
 
     private DatabaseReference mWinsReference;
@@ -50,6 +53,8 @@ public class CoverActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        mOrientation = this.getResources().getConfiguration().orientation;
 
         mWinsReference = FirebaseDatabase
                 .getInstance()
@@ -104,8 +109,8 @@ public class CoverActivity extends AppCompatActivity implements View.OnClickList
             mCharacters.get(0).setPushId(pushId);
             pushRef.setValue( mCharacters.get(0));
 
-            intent.putExtra("winner", mCharacters.get(0).getName());
-            intent.putExtra("loser", mCharacters.get(1).getName());
+            intent.putExtra("winner", mCharacters.get(0).getPicture());
+            intent.putExtra("loser", mCharacters.get(1).getPicture());
             startActivity(intent);
         }
 
@@ -114,8 +119,8 @@ public class CoverActivity extends AppCompatActivity implements View.OnClickList
             mCharacters.get(1).setPushId(pushId);
             pushRef.setValue( mCharacters.get(1));
 
-            intent.putExtra("winner", mCharacters.get(1).getName());
-            intent.putExtra("loser", mCharacters.get(0).getName());
+            intent.putExtra("winner", mCharacters.get(1).getPicture());
+            intent.putExtra("loser", mCharacters.get(0).getPicture());
             startActivity(intent);
         }
     }
@@ -138,10 +143,17 @@ public class CoverActivity extends AppCompatActivity implements View.OnClickList
                     public void run() {
                             mAdapter = new CharacterListAdapter(getApplicationContext(), mCharacters);
                             mRecyclerView.setAdapter(mAdapter);
-                            RecyclerView.LayoutManager layoutManager =
-                                    new LinearLayoutManager(CoverActivity.this);
+
+                        if(mOrientation == Configuration.ORIENTATION_LANDSCAPE){
+                            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(CoverActivity.this, LinearLayoutManager.HORIZONTAL, false);
                             mRecyclerView.setLayoutManager(layoutManager);
                             mRecyclerView.setHasFixedSize(false);
+                        }
+                        else{
+                            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(CoverActivity.this);
+                            mRecyclerView.setLayoutManager(layoutManager);
+                            mRecyclerView.setHasFixedSize(false);
+                        }
 
                         mCharacterOneButton.setText(mCharacters.get(0).getName());
 
