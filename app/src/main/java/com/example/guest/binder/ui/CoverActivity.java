@@ -25,6 +25,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.parceler.Parcels;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
@@ -177,11 +179,18 @@ public class CoverActivity extends AppCompatActivity implements View.OnClickList
         });
     }
 
-    public void addWinToFirebase(String wins) {
-        int intw = Integer.parseInt(wins);
-        intw += 1;
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
 
-        mWinsReference.push().setValue(Integer.toString(intw));
+        savedInstanceState.putParcelable("characters", Parcels.wrap(mCharacters));
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        mCharacters = Parcels.unwrap(savedInstanceState.getParcelable("characters"));
     }
 
 }
